@@ -11,11 +11,16 @@ model {
             targetSdkVersion.apiLevel = 25
             versionCode = 1
             versionName = "1.0"
+
+
+        }
+
+        ndk {//指定生成的lib，比如此时生成native.so
+            moduleName = "NdkTest"
+             ldLibs.add("log")
         }
     }
-    android.ndk {//指定生成的lib，比如此时生成native.so
-        moduleName = "NdkTest"
-    }
+
     android.productFlavors {
         // for detailed abiFilter descriptions, refer to "Supported ABIs" @
         // https://developer.android.com/ndk/guides/abis.html#sa
@@ -47,6 +52,9 @@ model {
         release {
             minifyEnabled = false
             proguardFiles.add(file("proguard-rules.txt"))
+            ndk {
+                debuggable = true
+            }
         }
     }
 
