@@ -16,6 +16,7 @@ JNIEXPORT jstring JNICALL Java_com_li_qingju_jnidemo_NdkTest_getString(JNIEnv *,
 
 
 JNIEXPORT jint JNICALL Java_com_li_qingju_jnidemo_NdkTest_doAdd(JNIEnv *, jclass, jint, jint);
+void  read_locat_txt();
 
 #ifdef __cplusplus
 }
