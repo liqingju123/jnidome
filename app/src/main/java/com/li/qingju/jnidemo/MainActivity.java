@@ -12,6 +12,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity {
 
@@ -19,14 +21,22 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//       NdkTest ndkTest = new NdkTest();
+//        Base64Demo.h2("222||111111111111111");
+        List<String> lists = new ArrayList<String>();
+        lists.add("222");
+        lists.add("111111111111111");
+//        String[] strs =;
+        NdkTest.base64(lists.toArray(new String[lists.size()]));
+    }
+
+    public void NDK(){
         int sum = NdkTest.doAdd(20, 30);
         Log.e("====   ", sum + "" + "   " + NdkTest.getString());
         ReadTxtFile("/sdcard/我是测试");
     }
 
-    public static String ReadTxtFile(String strFilePath)
-    {
+
+    public static String ReadTxtFile(String strFilePath) {
         String path = strFilePath;
         String content = ""; //文件内容字符串
         //打开文件
