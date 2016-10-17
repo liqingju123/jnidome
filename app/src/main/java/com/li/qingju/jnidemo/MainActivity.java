@@ -26,7 +26,8 @@ public class MainActivity extends Activity {
         lists.add("222");
         lists.add("111111111111111");
 //        String[] strs =;
-        NdkTest.base64(lists.toArray(new String[lists.size()]));
+      String baseCode =  NdkTest.base64(lists.toArray(new String[lists.size()]));
+        Log.e("========java  ",baseCode);
     }
 
     public void NDK(){

@@ -36,14 +36,15 @@ JNIEXPORT jstring JNICALL Java_com_li_qingju_jnidemo_NdkTest_base64(JNIEnv *env,
                                                                     jobjectArray stringArray) {
     LOGI("======  %s", "我是JNI的需要");
     int size = env->GetArrayLength(stringArray);
-    char *chars;
-    char *one_char;
-    const char *jionType = "__";
+//    char *chars = (char *) "";
+    char *chars="";
+    char *one_char="";
+    char *jionType = "__";
     for (int i = 0; i < size; ++i) {
         jstring str = (jstring) env->GetObjectArrayElement(stringArray, i);
-        one_char = (char *) env->GetStringUTFChars(str, NULL);
-//        one_char = join(one_char,jionType);
-//        chars =join(chars,one_char);
+        const char*  one_char1 =  env->GetStringUTFChars(str, NULL);
+        one_char = join(jionType,one_char1);
+        chars =join(chars,one_char);
     }
     LOGI("======  %s", chars);
     return env->NewStringUTF(chars);
@@ -76,8 +77,8 @@ void read_locat_txt() {
 }
 
 char *join(char *s1, const char *s2) {
-   char *result =  (char *)malloc(strlen(s1) + strlen(s2) + 1);//+1 for the zero-terminator
-    //in real code you would check for errors in malloc here
+   char *result =  (char *)malloc(strlen(s1) + strlen(s2) + 1);
+
 //    if (result == NULL) exit (1);
 
     strcpy(result, s1);
