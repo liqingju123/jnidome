@@ -20,6 +20,7 @@ public class NdkTest {
     public static native int doAdd(int param1, int param2);
 
     public static native String base64(String[] strs);
+    public static native int getBaseb64Code();
 
 
 }

@@ -7,6 +7,7 @@
 #include <malloc.h>
 
 #define   LOG_TAG    "LOG_TEST"
+#define BASE64CODE 32;
 #define MAXLINE 20
 #define   LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define   LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
@@ -50,6 +51,10 @@ JNIEXPORT jstring JNICALL Java_com_li_qingju_jnidemo_NdkTest_base64(JNIEnv *env,
     return env->NewStringUTF(chars);
 
 }
+JNIEXPORT jint Java_com_li_qingju_jnidemo_NdkTest_getBaseb64Code(JNIEnv *env, jclass type){
+    return BASE64CODE;
+
+}
 
 
 JNIEXPORT jint  JNICALL Java_com_li_qingju_jnidemo_NdkTest_doAdd(JNIEnv *env, jclass type,
@@ -78,11 +83,7 @@ void read_locat_txt() {
 
 char *join(char *s1, const char *s2) {
    char *result =  (char *)malloc(strlen(s1) + strlen(s2) + 1);
-
-//    if (result == NULL) exit (1);
-
     strcpy(result, s1);
     strcat(result, s2);
-
     return result;
 }

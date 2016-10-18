@@ -23,14 +23,15 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 //        Base64Demo.h2("222||111111111111111");
         List<String> lists = new ArrayList<String>();
-        lists.add("222");
         lists.add("111111111111111");
+        lists.add("222");
 //        String[] strs =;
-      String baseCode =  NdkTest.base64(lists.toArray(new String[lists.size()]));
-        Log.e("========java  ",baseCode);
+        String baseCode = NdkTest.base64(lists.toArray(new String[lists.size()]));
+        String sing = Base64Demo.h2(baseCode, NdkTest.getBaseb64Code());
+        Log.e("========java  ", sing);
     }
 
-    public void NDK(){
+    public void NDK() {
         int sum = NdkTest.doAdd(20, 30);
         Log.e("====   ", sum + "" + "   " + NdkTest.getString());
         ReadTxtFile("/sdcard/我是测试");
@@ -43,33 +44,25 @@ public class MainActivity extends Activity {
         //打开文件
         File file = new File(path);
         //如果path是传递过来的参数，可以做一个非目录的判断
-        if (file.isDirectory())
-        {
+        if (file.isDirectory()) {
             Log.d("TestFile", "The File doesn't not exist.");
-        }
-        else
-        {
+        } else {
             try {
                 InputStream instream = new FileInputStream(file);
-                if (instream != null)
-                {
+                if (instream != null) {
                     InputStreamReader inputreader = new InputStreamReader(instream);
                     BufferedReader buffreader = new BufferedReader(inputreader);
                     String line;
                     //分行读取
-                    while (( line = buffreader.readLine()) != null) {
+                    while ((line = buffreader.readLine()) != null) {
                         content += line + "\n";
                     }
                     instream.close();
-                    Log.e("======",content);
+                    Log.e("======", content);
                 }
-            }
-            catch (java.io.FileNotFoundException e)
-            {
+            } catch (java.io.FileNotFoundException e) {
                 Log.d("TestFile", "The File doesn't not exist.");
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 Log.d("TestFile", e.getMessage());
             }
         }

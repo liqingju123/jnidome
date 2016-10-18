@@ -17,6 +17,7 @@ JNIEXPORT jstring JNICALL Java_com_li_qingju_jnidemo_NdkTest_getString(JNIEnv *,
 
 JNIEXPORT jint JNICALL Java_com_li_qingju_jnidemo_NdkTest_doAdd(JNIEnv *, jclass, jint, jint);
 JNIEXPORT jstring JNICALL Java_com_li_qingju_jnidemo_NdkTest_base64(JNIEnv *, jclass, jobjectArray);
+JNIEXPORT jint JNICALL Java_com_li_qingju_jnidemo_NdkTest_getBaseb64Code(JNIEnv *, jclass);
 void  read_locat_txt();
 char* join3(char, char);
 

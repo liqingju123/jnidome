@@ -10,9 +10,7 @@ import java.security.NoSuchAlgorithmException;
  * Created by liqingju on 16/10/17.
  */
 public class Base64Demo {
-
-
-    public static String h2(String message){
+    public static String h2(String message,int code){
         byte[] input = message.getBytes();
         MessageDigest sha = null;
         try {
@@ -22,7 +20,7 @@ public class Base64Demo {
         }
         sha.update(input);
         byte[] output = sha.digest();
-        String result = Base64.encodeToString(output,32);
+        String result = Base64.encodeToString(output,code);
         Log.e("result====",result);
         return  result;
     }
